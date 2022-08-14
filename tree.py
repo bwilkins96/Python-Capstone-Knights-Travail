@@ -57,6 +57,9 @@ class Node:
                 queue.append(n)
 
 
+    def __repr__(self):
+        return f'<Node: {self.value}>'
+
 
 #node1 = Node("root1")
 #node2 = Node("root2")

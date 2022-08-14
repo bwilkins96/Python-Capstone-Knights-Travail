@@ -42,6 +42,30 @@ class KnightPathFinder:
         return moves
 
 
+    def build_move_tree(self):
+        queue = [(0,0)]
+        self._root = Node((0,0))
+        parent = self._root
+
+        while len(queue) > 0:
+            current = queue.pop(0)
+            moves = self.new_move_positions(current)
+
+            if parent._value != current:
+                parent = self._root.breadth_search(current)
+
+            for m in moves:
+                queue.append(m)
+                Node(m).parent = parent
+
+
+
+
+#finder = KnightPathFinder((0, 0))
+#finder.build_move_tree()
+#print(finder._root.children)
+#print(finder._root.children[0].children[0].children)
+#print(finder._considered_positions)
 
 
 #finder = KnightPathFinder((0, 0))
